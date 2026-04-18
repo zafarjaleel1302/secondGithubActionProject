@@ -1,0 +1,17 @@
+name: firstworkflow
+on : push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get code
+        uses: actions/checkout@v6
+      - name: InstallNodeJs
+        uses: actions/setup-node@v4 
+        with:
+          node-version: 20
+      - name: Install dependencies
+        uses: npm ci
+      - name: Run Test
+        uses: npm test    
+
